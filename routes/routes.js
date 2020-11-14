@@ -10,6 +10,8 @@ router.get('/', function(req, res) {
 
 
  router.get('/redir', function(req, res) {
+   var ipInfo = JSON.stringify(getIP(req));
+     mongodb.sendVal("Redirection: " + ipInfo, 0);
     res.redirect(303, 'http://52.200.252.64/') // Notice the 303 parameter
  });
 

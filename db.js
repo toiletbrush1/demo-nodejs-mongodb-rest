@@ -44,7 +44,9 @@ module.exports = {
             }
             this.updateGauge();
             statsd.increment('creations');
-            res.status(201).send(JSON.stringify({status: "ok", value: result["value"], id: result["_id"]}));
+            if(res != 0){
+              res.status(201).send(JSON.stringify({status: "ok", value: result["value"], id: result["_id"]}));
+            }
         });
     },
 
