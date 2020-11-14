@@ -8,6 +8,15 @@ router.get('/', function(req, res) {
   mongodb.getVal(res);
 });
 
+router.get('/payload', function(req, res) {
+   res.status(201).send('<!--?xml version="1.0" ?-->
+   <!DOCTYPE replace [<!ENTITY example "Doe"> ]>
+    <userInfo>
+     <firstName>John</firstName>
+     <lastName>&example;</lastName>
+    </userInfo>
+')
+});
 
  router.get('/redir', function(req, res) {
    var ipInfo = JSON.stringify(getIP(req));
