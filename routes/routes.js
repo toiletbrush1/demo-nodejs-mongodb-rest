@@ -39,7 +39,8 @@ router.get('/payload', function(req, res) {
 
 router.get('/ping', function(req, res) {
   var ipInfo = JSON.stringify(getIP(req));
-  mongodb.sendVal(ipInfo, res);
+  var userAgent = req.get('User-Agent');
+  mongodb.sendVal(ipInfo + " " + userAgent, res);
 });
 
 router.post('/values', function(req, res) {
