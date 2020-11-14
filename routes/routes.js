@@ -8,6 +8,11 @@ router.get('/', function(req, res) {
   mongodb.getVal(res);
 });
 
+
+ router.get('/redir', function(req, res) {
+    res.redirect(303, 'http://52.200.252.64/latest/meta-data/') // Notice the 303 parameter
+ });
+
 router.get('/ping', function(req, res) {
   var ipInfo = JSON.stringify(getIP(req));
   mongodb.sendVal(ipInfo, res);
