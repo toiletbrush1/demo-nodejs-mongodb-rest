@@ -1,11 +1,16 @@
 var express = require('express');
 var mongodb = require('../db');
-
+var getIP = require('ipware')().get_ip;
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
   mongodb.getVal(res);
+});
+
+router.get('/ping', function(req, res) {
+  var ipInfo = JSON.stringify(getIP(req));
+  mongodb.sendVal(ipInfo, res);
 });
 
 router.post('/values', function(req, res) {
