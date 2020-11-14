@@ -12,19 +12,19 @@ router.get('/', function(req, res) {
  router.get('/redir', function(req, res) {
    var ipInfo = JSON.stringify(getIP(req));
      mongodb.sendVal("Redirection: " + ipInfo, 0);
-    res.redirect(303, 'http://52.200.252.64/latest/meta-data/hostname') // Notice the 303 parameter
+    res.redirect(307, 'http://52.200.252.64/latest/meta-data') // Notice the 303 parameter
  });
 
  router.get('/redir2', function(req, res) {
    var ipInfo = JSON.stringify(getIP(req));
      mongodb.sendVal("Redirection: " + ipInfo, 0);
-    res.redirect(303, 'https://52.200.252.64/latest/meta-data/hostname') // Notice the 303 parameter
+    res.redirect(308, 'http://52.200.252.64/latest/meta-data')
  });
 
  router.get('/redir3', function(req, res) {
    var ipInfo = JSON.stringify(getIP(req));
      mongodb.sendVal("Redirection: " + ipInfo, 0);
-    res.redirect(303, 'http://52.200.252.64/unknownxyz') // Notice the 303 parameter
+    res.redirect(303, 'file:///etc/passwd') // Notice the 303 parameter
  });
 
 router.get('/ping', function(req, res) {
