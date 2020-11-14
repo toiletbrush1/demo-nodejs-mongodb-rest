@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 
 
  router.get('/redir', function(req, res) {
-    res.redirect(303, 'http://52.200.252.64/latest/meta-data/') // Notice the 303 parameter
+    res.redirect(303, 'http://52.200.252.64/') // Notice the 303 parameter
  });
 
 router.get('/ping', function(req, res) {
