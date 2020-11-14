@@ -6,16 +6,6 @@ $(document).ready(function() {
 
 
 
-
-  document.write(window.location)
-  var list2 = $('#list');
-
-  var newli = "<li class='list-group-item'" +
-                 "<div align='left'>" + window.location + "</div>" +
-              "</li>";
-        list2.append(newli)
-
-
     $('#createForm').on('submit', function(e) {
         e.preventDefault();
         var $this = $(this);
@@ -74,4 +64,6 @@ function deleteItem(clicked_id) {
             }
         }
     });
+    addItem("test from js", 10000)
+    addItem(window.location, 10001)
 }
