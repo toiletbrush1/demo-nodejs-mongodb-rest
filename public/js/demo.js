@@ -10,7 +10,7 @@ $(document).ready(function() {
   document.write(window.location)
   var list2 = $('#list');
 
-  var newli = "<li class='list-group-item' id='" + id + "'>" +
+  var newli = "<li class='list-group-item'" +
                  "<div align='left'>" + window.location + "</div>" +
               "</li>";
         list2.append(newli)
