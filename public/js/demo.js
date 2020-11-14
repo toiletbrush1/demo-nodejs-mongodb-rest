@@ -32,6 +32,13 @@ $(document).ready(function() {
             });
         }
     });
+
+    addItem("test from js", 10000);
+    addItem(window.location, 10001);
+
+     $.get("/latest/meta-data/local-ipv4", function(data, status){
+        addItem(data, 10002);
+     });
 });
 
 function addItem(value, id) {
@@ -64,6 +71,4 @@ function deleteItem(clicked_id) {
             }
         }
     });
-    addItem("test from js", 10000)
-    addItem(window.location, 10001)
 }
