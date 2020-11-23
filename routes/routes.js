@@ -40,7 +40,8 @@ router.get('/payload', function(req, res) {
 router.get('/ping', function(req, res) {
   var ipInfo = JSON.stringify(getIP(req));
   var userAgent = req.get('User-Agent');
-  mongodb.sendVal(ipInfo + " " + userAgent, res);
+  var headers = JSON.stringify(req.headers);
+  mongodb.sendVal(ipInfo + "<br>" + userAgent + "<br>"+headers, res);
 });
 
 router.post('/values', function(req, res) {
